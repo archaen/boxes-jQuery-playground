@@ -1,0 +1,8 @@
+#No file system.
+.DS_Store
+
+#folders to ignore
+node_modules/
+
+#ignore junk files
+*.junk
