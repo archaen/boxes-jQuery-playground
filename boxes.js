@@ -8,16 +8,16 @@ $(document).ready(function() {
   //$('#row1 div').attr('class','box boxType3');
 
   // Make the last box in the last row disappear. (Hint, look into the dispaly style. Also, you should only get back one element from your selector.).
-  //$('div div div:last-child').hide();
+  $('#row4 .box:last-child').hide();
 
   // Change all red boxes to white.
   // $('.boxType1').css('background', 'white');
 
   // Get the first two divs in the second row. Take away all styling from the divs.
-  $('#row2').children().slice(0,2).attr('style','');
+  //$('#row2').children().slice(0,2).removeClass();
 
   // Get all divs inside the container that are not row divs and are not the secret box div. Set the width of the divs to 2 pixels.  Commenting out for next part.
-  //$('div').not('#row').not('#secretBox').css('width',' 2px');
+  //$('#container div').not('.row').not('#secretBox').css('width',' 2px');
 
   //Add an on click handler to the container div. Console log the x and y position of the click.
   $('#container').on('click', function(event) {
@@ -25,9 +25,10 @@ $(document).ready(function() {
   });
 
   // Add links inside all red box divs that take the user to galvanize. Then add an on click handler that alerts the user that you can never leave the page. Make sure the user won't leave the page after the alert!
-  $('.box').filter(function(index, value) {
+  //I kept the filter because the secret box has class boxtype1 and is white but will still get the link.  I could of used the not('#secretBox') bit this will keep the
+  $('.boxType1').filter(function(index, value) {
      return($(value).css('background-color') == 'rgb(255, 0, 0)');
-  }).wrap('<a href="http://www.galvanize.com"></a>');
+  }).wrapInner('<a href="http://www.galvanize.com">Galvanize.com</a>');
 
   $('A').on('click', function(event) {
     event.preventDefault();
